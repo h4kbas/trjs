@@ -1,11 +1,6 @@
-Word = require "./Word"
-Hal = Word.Hal
-Kisi = Word.Kisi
-Word = Word.Word
+Sentence = require "./Sentence"	
 
-Nesne = require "./Nesne"
-		
-n = new Nesne "toprak"
-n.SahiplikEki Kisi.Biz
-n.HalEki Hal.Bulunma
-console.log n
+#Onu görmeyi çok istiyorum
+s = new Sentence "kırmızı;araba|ev>2|+]2git"
+console.log do s.BuildSentence
+

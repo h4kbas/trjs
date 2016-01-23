@@ -39,41 +39,51 @@ module.exports =
 		Sertlestir : (str, ek)->
 			kural = 'b' : 'p', 'c' : 'ç', 'd' : 't', 'g' : 'k'
 			ilk = ek[0];
-			if @IsSert(str[str.length - 1]) and @IsYumusak(ek[0]) then return kural[ilk] + ek.slice(1) else return ek
+			return if @IsSert(str[str.length - 1]) and @IsYumusak(ek[0]) then  kural[ilk] + ek.slice(1) else  ek
 			
-		Yumusat : (str)->	
+		Yumusat : (str)->
 			kural = 'p' : 'b', 'ç' : 'c', 't' : 'd', 'k' : 'ğ'
 			unsuz = @SonUnsuz str
 			if kural[unsuz]?
 				if unsuz is 'k'
-					return str.slice(0,-1) +  if @IsUnsuz str[str.length-2] then 'g' else 'ğ'
-				else 
+					if @UnluGetir(str).length > 1
+						return str.slice(0,-1) +  if @IsUnsuz str[str.length-2] then 'g' else 'ğ'
+					else return	str
+				else if @UnluGetir(str).length > 1
 					return str.slice(0,-1)  + kural[unsuz]
+				else return str
 			else 
 				return str
-				
-		BuyukUyum : (str)->
-			s = Helper::SonUnlu str
-			k1 = ['i', 'ü', 'e', 'ö'] #e
-			k2 = ['ı', 'u', 'a', 'o'] #a
-			if k1.indexOf(s) > -1
-				return 'e'
-			else if k2.indexOf(s) > -1
-				return 'a'
-			""
-		KucukUyum : (str)->
-			s = Helper::SonUnlu str
-			k1 = ['i','e'] #i
-			k2 = ['ü','ö'] #ü
-			k3 = ['ı','a'] #ı
-			k4 = ['u','o'] #u
+		#Depreached	
+		Daralma : (str, ek)->
+			kural = 'o' : 'u', 'ö' : 'ü', 'e' : 'i', 'a' : 'ı'
+			unlu = @UnluGetir str
+			sunlu = do @SonUnlu
+			if sunlu is 'a' || sunlu is 'e'
+				if unlu.length > 1
+					return kural[unlu[unlu.length - 2]]
+				else if unlu.length is 1
+					return kural[unlu[unlu.length - 1]]
+				else
+					return false
+			else return false
+					
 			
-			if k1.indexOf(s) > -1
+		BuyukUyum : (str)->
+			s = @SonUnlu str
+			if ['i', 'ü', 'e', 'ö'].indexOf(s) > -1
+				return 'e'
+			else if ['ı', 'u', 'a', 'o'].indexOf(s) > -1
+				return 'a'
+			false
+		KucukUyum : (str)->
+			s = @SonUnlu str
+			if ['i','e'].indexOf(s) > -1
 				return 'i'
-			else if k2.indexOf(s) > -1
+			else if ['ü','ö'].indexOf(s) > -1
 				return 'ü'
-			else if k3.indexOf(s) > -1
+			else if ['ı','a'].indexOf(s) > -1
 				return 'ı'
-			else if k4.indexOf(s) > -1
+			else if ['u','o'].indexOf(s) > -1
 				return 'u'
-			""
+			false
