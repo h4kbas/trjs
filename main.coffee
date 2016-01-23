@@ -1,6 +1,5 @@
 Sentence = require "./Sentence"	
 
-#Onu görmeyi çok istiyorum
-s = new Sentence "kırmızı;araba|ev>2|+]2git"
+s = new Sentence "küçük;çocuk|ev>4|+]4gel"
 console.log do s.BuildSentence
 
