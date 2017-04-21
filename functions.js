@@ -98,7 +98,6 @@ module.exports = {
     },
     BuyukUyum: function(s){
         const sunlu = this.SonUnlu(s);
-        console.log(sunlu);
         if(['i', 'ü', 'e', 'ö'].contains(sunlu)){
             return 'e'
         }
