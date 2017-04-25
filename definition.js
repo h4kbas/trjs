@@ -3,7 +3,7 @@ const Zamanlar = {
     'Genis': {
         '+': '&*r^',
         '-': {Any: 'm#z^', Ben:'m#m', Biz:'m#y*z'},
-        '+?':'&*r^?',
+        '+?':{Any: '&*r?^', Onlar: '&*yor^?'},
         '-?':{Any: 'm#z^?', Ben:'m#z?^', Sen:'m#z?^', Biz:'m#z?^'}
     },
     'Simdiki':{
