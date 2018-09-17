@@ -1,4 +1,4 @@
-# TrJS
+# TrJS [![CircleCI](https://circleci.com/gh/h4kbas/TrJS/tree/master.svg?style=svg)](https://circleci.com/gh/h4kbas/TrJS/tree/master)
 A Library That Uses Turkish Grammar and Composes Turkish Sentences. It supports all features of Turkish such as consonant harmony and vowel harmony.
 
 This is so simple to use it. Here is a sample
