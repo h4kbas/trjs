@@ -5,8 +5,8 @@ jobs:
     docker:
       - image: circleci/node:7
     branches:
-      only:
-        - v2
+      ignore:
+        - master
     steps:
       - checkout
       - run: npm install
