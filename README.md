@@ -1,4 +1,4 @@
-# TrJS
+# TrJS  [![CircleCI](https://circleci.com/gh/h4kbas/TrJS/tree/v2.svg?style=svg)](https://circleci.com/gh/h4kbas/TrJS/tree/v2)
 A Library That Uses Turkish Grammar and Composes Turkish Sentences
 
 # TODO
