@@ -6,5 +6,6 @@ jobs:
       - image: circleci/node:7
     steps:
       - checkout
+      - run: npm install typescript -g
       - run: npm install
       - run: npm test
