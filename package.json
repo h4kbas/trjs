@@ -1,0 +1,16 @@
+{
+  "name": "TrJS",
+  "version": "1.0.0",
+  "description": "A Library That Uses Turkish Grammar and Composes Turkish Sentences",
+  "main": "Dist/main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "mocha"
+  },
+  "author": "Hüseyin Akbaş <huskb.code@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^5.2.0",
+    "typescript": "^3.0.3"
+  }
+}
