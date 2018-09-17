@@ -4,6 +4,9 @@ jobs:
     working_directory: ~/tmp
     docker:
       - image: circleci/node:7
+    branches:
+      only:
+        - v2
     steps:
       - checkout
       - run: npm install
