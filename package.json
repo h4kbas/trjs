@@ -7,8 +7,11 @@
     "prestart": "tsc -p .",
     "pretest": "tsc -p .",
     "start": "node ./Dist/main.js",
-    "test": "node ./Dist/test.js"
+    "test": "mocha"
   },
   "author": "Hüseyin Akbaş <huskb.code@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
 }
