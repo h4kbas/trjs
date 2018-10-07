@@ -5,11 +5,26 @@ export class Word {
   private Root: string = "";
 
   constructor(root: string) {
+    if (root.endsWith("mak") || root.endsWith("mek")) {
+      root = root.slice(0, -3);
+    }
     this.Root = root;
   }
-  public suffix(x: string): void {
 
-    // this.Root += x;
+  public toString(): string {
+    return this.Root;
+  }
+  public suffix(x: string): void {
+    if (!x) { return; }
+    console.log(x);
+    x = this.harmonify(this.Root, x);
+    console.log(x);
+
+    console.log(this.Root);
+    this.Root = this.consonantLenition(this.Root, x);
+    console.log(this.Root);
+    this.Root += this.consonantAssimilation(this.Root, x);
+    console.log(this.Root);
   }
 
   // Conditionals
@@ -28,17 +43,17 @@ export class Word {
   // Getters
   public lastVowel(x?: string): string {
     x = x || this.Root;
-    for (let i = x.length - 1; i > 0; i--) {
-      if (this.isVowel(x[i])) {
-        return x[i];
+    for (let i = x.length; i >= 0; i--) {
+      if (this.isVowel(x[i - 1])) {
+        return x[i - 1];
       }
     }
   }
   public lastConsonant(x?: string): string {
     x = x || this.Root;
-    for (let i = x.length - 1; i > 0; i--) {
-      if (this.isConsonant(x[i])) {
-        return x[i];
+    for (let i = x.length; i >= 0; i--) {
+      if (this.isConsonant(x[i - 1])) {
+        return x[i - 1];
       }
     }
   }
@@ -117,12 +132,42 @@ export class Word {
     }
   }
 
+  // Harmonify
+
+  public harmonify(x: string, y: string): string {
+    const out = y.split("");
+    let lastw = this.lastVowel(x);
+    for (let i = 0; i < out.length; i++) {
+      if (out[i] === "#") {
+        out[i] = this.backnessHarmony(lastw);
+        lastw = out[i];
+      } else if (out[i] === "*") {
+        out[i] = this.flatnessHarmony(lastw);
+        lastw = out[i];
+      } else if (this.isVowel(y[i])) {
+        lastw = out[i];
+      } else if (out[i] === "&") {
+        out[i] = "";
+        if (this.isVowel(this.lastLetter(x))) {
+          i++;
+          out[i] = "";
+        }
+       } else if (out[i] === "%") {
+        out[i] = ""; i++;
+        if (!this.isVowel(this.lastLetter(x))) {
+          out[i] = "";
+        }
+       }
+    }
+    return out.join("");
+  }
+
   // Assimilation
   public consonantAssimilation(x: string, y: string): string {
     const lastx = this.lastLetter(x);
     const firsty = this.firstLetter(y);
     const rule: any = {b : "p", c : "ç", d : "t", g : "k"};
-    if (this.isFortis(lastx) && this.isLenis(firsty)) {
+    if (this.isFortis(lastx) && this.isLenis(firsty) && (firsty in rule)) {
       return rule[firsty] + y.slice(1);
     } else { return y; }
   }
@@ -137,9 +182,9 @@ export class Word {
         } else {
           return x.slice(0, -1) + "ğ";
         }
-      } else {
+      } else if (lastx in rule) {
         return x.slice(0, -1) + rule[lastx];
-      }
+      } else {return x; }
     } else {  return x; }
   }
 }

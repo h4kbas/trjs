@@ -12,6 +12,7 @@
   "author": "Hüseyin Akbaş <huskb.code@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^10.11.3",
     "mocha": "^5.2.0",
     "typescript": "^3.0.3"
   }

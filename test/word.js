@@ -58,28 +58,34 @@ describe("Module Word", () => {
   describe("Validation Functions", () => {
     it("should validate given argument is a consonant or not", () => {
       assert.equal(word.isConsonant("g"), true);
+      assert.equal(word.isConsonant("a"), false);
     });
 
     it("should validate given argument is a vowel or not", () => {
       assert.equal(word.isVowel("a"), true);
+      assert.equal(word.isVowel("c"), false);
     });
 
     it("should validate given argument is a fortis or not", () => {
       assert.equal(word.isFortis("p"), true);
+      assert.equal(word.isFortis("h"), true);
     });
 
     it("should validate given argument is a lenis or not", () => {
       assert.equal(word.isLenis("b"), true);
+      assert.equal(word.isLenis("h"), false);
     });
   });
   describe("Assimilation & Lenition", () => {
     it("should find suitable assimilated form of given second argument while looking to first one", () => {
       assert.equal(word.consonantAssimilation("kitap", "cı"), "çı");
+      assert.equal(word.consonantAssimilation("kağıt", "ları"), "ları");
     });
 
     it("should change the form of the first argument while looking at the second one", () => {
       assert.equal(word.consonantLenition("kapak", "ı"), "kapağ");
       assert.equal(word.consonantLenition("renk", "i"), "reng");
+      // TODO: Fix K problem
       //assert.equal(word.consonantLenition("ak", "ı"), "ak");
     });
   });
