@@ -1,10 +1,6 @@
 import { Person } from "./Person";
 import {Word} from "./Word";
 
-export class Noun extends Word {
-
-}
-
 export enum Case {
   Accusative = "",
   Dative = "%y#",
@@ -20,3 +16,13 @@ export const Genitive  = {
   [Person.Siz]: "&*n*z",
   [Person.Onlar]: "l#r*",
 };
+
+export class Noun extends Word {
+  public case(c: Case): void {
+    this.suffix(c);
+  }
+
+  public genitive(person: Person): void {
+    this.suffix(Genitive[person]);
+  }
+}

@@ -190,4 +190,19 @@ describe("Module Noun", () => {
 
     });
   });
+
+  describe("Method Test", () => {
+    it("case method", () => {
+      const araba = new Noun("araba");
+      araba.case(Case.Ablative)
+      assert.equal(araba.toString(), "arabadan");
+    });
+
+    it("genitive method", () => {
+      const araba = new Noun("araba");
+      araba.genitive(Person.Onlar);
+      assert.equal(araba.toString(), "arabaları");
+    });
+  });
+  
 })
