@@ -85,8 +85,7 @@ describe("Module Word", () => {
     it("should change the form of the first argument while looking at the second one", () => {
       assert.equal(word.consonantLenition("kapak", "ı"), "kapağ");
       assert.equal(word.consonantLenition("renk", "i"), "reng");
-      // TODO: Fix K problem
-      //assert.equal(word.consonantLenition("ak", "ı"), "ak");
+      assert.equal(word.consonantLenition("ak", "ı"), "ak");
     });
   });
 });

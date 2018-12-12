@@ -239,7 +239,9 @@ export class Word {
           return x.slice(0, -1) + "g";
         } 
         else {
-          if(!(["y", "s", "k", "g", "ç", "b", "a"].includes(firstx)))
+          if( ( firstx == "k" && (x.length > 1 && x[x.length - 2] != "l" && x[x.length - 2] != "r"))  ||
+            !(["y", "s","ç", "b", "a", "k"].includes(firstx))
+          )
             return x.slice(0, -1) + "ğ";
           else
             return x; 
@@ -249,7 +251,9 @@ export class Word {
         return x;
       }
       else if (lastx in rule) {
-        if(["k", "y", "b", "u", "ü", "a"].includes(firstx) || (firstx == "g" && lastx != "t"))
+        if( ((firstx == "g" && lastx != "t")) ||
+            ((firstx == "k" && lastx != "t")  ||
+            ["y", "b", "u", "ü", "a"].includes(firstx)))
           return x;
         else
           return x.slice(0, -1) + rule[lastx];
