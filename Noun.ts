@@ -1,4 +1,4 @@
-import { Person } from "./Person";
+import { Pronouns } from "./Pronouns";
 import {Word} from "./Word";
 
 export enum Case {
@@ -8,21 +8,35 @@ export enum Case {
   Locative = "d#",
 }
 
-export const Genitive  = {
-  [Person.Ben]: "&*m",
-  [Person.Sen]: "&*n",
-  [Person.O]: "%s*",
-  [Person.Biz]: "&*m*z",
-  [Person.Siz]: "&*n*z",
-  [Person.Onlar]: "l#r*",
+interface IGenitive{
+  [p: string]: string;
+}
+
+export const Genitive: IGenitive  = {
+  [Pronouns.Ben]: "&*m",
+  [Pronouns.Sen]: "&*n",
+  [Pronouns.O]: "%s*",
+  [Pronouns.Biz]: "&*m*z",
+  [Pronouns.Siz]: "&*n*z",
+  [Pronouns.Onlar]: "l#r*",
 };
+
+export const Plural = "l#r";
 
 export class Noun extends Word {
   public case(c: Case): void {
     this.suffix(c);
   }
 
-  public genitive(person: Person): void {
-    this.suffix(Genitive[person]);
+  public genitive(subject: Pronouns): void {
+    this.suffix(Genitive[subject]);
+  }
+
+  public plural() {
+    this.suffix(Plural);
+  }
+
+  public singular() {
+    this.desuffix(Plural);
   }
 }

@@ -12,7 +12,7 @@
       "max-classes-per-file":[false, 5],
       "member-ordering":[false],
       "prefer-const": [false],
-      "object-literal-sort-keys":[false]
+      "object-literal-sort-keys":[false],
     },
     "rulesDirectory": []
 }

@@ -1,4 +1,5 @@
-export enum Person {
+export enum Pronouns {
+  Any,
   Ben,
   Sen,
   O,

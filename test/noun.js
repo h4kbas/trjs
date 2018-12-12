@@ -1,6 +1,6 @@
 
 const {Genitive, Case, Noun} = require("../Dist/Noun");
-const {Person} = require("../Dist/Person");
+const {Pronouns} = require("../Dist/Pronouns");
 const assert = require("assert");
 describe("Module Noun", () => {
   describe("Case Test", () => {
@@ -76,116 +76,116 @@ describe("Module Noun", () => {
 
   describe("Genitive Case Test", () => {
     //Singular
-    it("should return genitive first person singular case correctly", () => {
+    it("should return genitive first Pronouns singular case correctly", () => {
       const araba = new Noun("araba");
-      araba.suffix(Genitive[Person.Ben]);
+      araba.suffix(Genitive[Pronouns.Ben]);
       assert.equal(araba.toString(), "arabam");
 
       const depo = new Noun("depo");
-      depo.suffix(Genitive[Person.Ben]);
+      depo.suffix(Genitive[Pronouns.Ben]);
       assert.equal(depo.toString(), "depom");
 
       const ev = new Noun("ev");
-      ev.suffix(Genitive[Person.Ben]);
+      ev.suffix(Genitive[Pronouns.Ben]);
       assert.equal(ev.toString(), "evim");
 
       const kagit = new Noun("kağıt");
-      kagit.suffix(Genitive[Person.Ben]);
+      kagit.suffix(Genitive[Pronouns.Ben]);
       assert.equal(kagit.toString(), "kağıdım");
 
     });
     
-    it("should return genitive second person singular case correctly", () => {
+    it("should return genitive second Pronouns singular case correctly", () => {
       const araba = new Noun("araba");
-      araba.suffix(Genitive[Person.Sen]);
+      araba.suffix(Genitive[Pronouns.Sen]);
       assert.equal(araba.toString(), "araban");
 
       const depo = new Noun("depo");
-      depo.suffix(Genitive[Person.Sen]);
+      depo.suffix(Genitive[Pronouns.Sen]);
       assert.equal(depo.toString(), "depon");
 
       const ev = new Noun("ev");
-      ev.suffix(Genitive[Person.Sen]);
+      ev.suffix(Genitive[Pronouns.Sen]);
       assert.equal(ev.toString(), "evin");
 
       const kagit = new Noun("kağıt");
-      kagit.suffix(Genitive[Person.Sen]);
+      kagit.suffix(Genitive[Pronouns.Sen]);
       assert.equal(kagit.toString(), "kağıdın");
 
     });
 
-    it("should return genitive third person singular case correctly", () => {
+    it("should return genitive third Pronouns singular case correctly", () => {
       const araba = new Noun("araba");
-      araba.suffix(Genitive[Person.O]);
+      araba.suffix(Genitive[Pronouns.O]);
       assert.equal(araba.toString(), "arabası");
 
       const depo = new Noun("depo");
-      depo.suffix(Genitive[Person.O]);
+      depo.suffix(Genitive[Pronouns.O]);
       assert.equal(depo.toString(), "deposu");
 
       const ev = new Noun("ev");
-      ev.suffix(Genitive[Person.O]);
+      ev.suffix(Genitive[Pronouns.O]);
       assert.equal(ev.toString(), "evi");
 
       const kagit = new Noun("kağıt");
-      kagit.suffix(Genitive[Person.O]);
+      kagit.suffix(Genitive[Pronouns.O]);
       assert.equal(kagit.toString(), "kağıdı");
 
     });
     //Plural
-    it("should return genitive first person plural case correctly", () => {
+    it("should return genitive first Pronouns plural case correctly", () => {
       const araba = new Noun("araba");
-      araba.suffix(Genitive[Person.Biz]);
+      araba.suffix(Genitive[Pronouns.Biz]);
       assert.equal(araba.toString(), "arabamız");
 
       const depo = new Noun("depo");
-      depo.suffix(Genitive[Person.Biz]);
+      depo.suffix(Genitive[Pronouns.Biz]);
       assert.equal(depo.toString(), "depomuz");
 
       const ev = new Noun("ev");
-      ev.suffix(Genitive[Person.Biz]);
+      ev.suffix(Genitive[Pronouns.Biz]);
       assert.equal(ev.toString(), "evimiz");
 
       const kagit = new Noun("kağıt");
-      kagit.suffix(Genitive[Person.Biz]);
+      kagit.suffix(Genitive[Pronouns.Biz]);
       assert.equal(kagit.toString(), "kağıdımız");
 
     });
 
-    it("should return genitive second person plural case correctly", () => {
+    it("should return genitive second Pronouns plural case correctly", () => {
       const araba = new Noun("araba");
-      araba.suffix(Genitive[Person.Siz]);
+      araba.suffix(Genitive[Pronouns.Siz]);
       assert.equal(araba.toString(), "arabanız");
 
       const depo = new Noun("depo");
-      depo.suffix(Genitive[Person.Siz]);
+      depo.suffix(Genitive[Pronouns.Siz]);
       assert.equal(depo.toString(), "deponuz");
 
       const ev = new Noun("ev");
-      ev.suffix(Genitive[Person.Siz]);
+      ev.suffix(Genitive[Pronouns.Siz]);
       assert.equal(ev.toString(), "eviniz");
 
       const kagit = new Noun("kağıt");
-      kagit.suffix(Genitive[Person.Siz]);
+      kagit.suffix(Genitive[Pronouns.Siz]);
       assert.equal(kagit.toString(), "kağıdınız");
 
     });
 
-    it("should return genitive third person plural case correctly", () => {
+    it("should return genitive third Pronouns plural case correctly", () => {
       const araba = new Noun("araba");
-      araba.suffix(Genitive[Person.Onlar]);
+      araba.suffix(Genitive[Pronouns.Onlar]);
       assert.equal(araba.toString(), "arabaları");
 
       const depo = new Noun("depo");
-      depo.suffix(Genitive[Person.Onlar]);
+      depo.suffix(Genitive[Pronouns.Onlar]);
       assert.equal(depo.toString(), "depoları");
 
       const ev = new Noun("ev");
-      ev.suffix(Genitive[Person.Onlar]);
+      ev.suffix(Genitive[Pronouns.Onlar]);
       assert.equal(ev.toString(), "evleri");
 
       const kagit = new Noun("kağıt");
-      kagit.suffix(Genitive[Person.Onlar]);
+      kagit.suffix(Genitive[Pronouns.Onlar]);
       assert.equal(kagit.toString(), "kağıtları");
 
     });
@@ -200,7 +200,7 @@ describe("Module Noun", () => {
 
     it("genitive method", () => {
       const araba = new Noun("araba");
-      araba.genitive(Person.Onlar);
+      araba.genitive(Pronouns.Onlar);
       assert.equal(araba.toString(), "arabaları");
     });
   });
