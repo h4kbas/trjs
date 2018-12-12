@@ -14,7 +14,7 @@ export const Person: IPerson = {
   [Pronouns.Ben]: "&*m",
   [Pronouns.Sen]: "s*n",
   [Pronouns.O]  : "",
-  [Pronouns.Biz]: "%y&*z",
+  [Pronouns.Biz]: "%y*z",
   [Pronouns.Siz]: "s*n*z",
   [Pronouns.Onlar]: "l#r",
 };
@@ -44,7 +44,15 @@ export class Verb extends Word {
     this.tense = t;
     this.polarity = po;
     let link = Tense[t][po][m];
-    this.suffix(link);
-    this.suffix(Person[p]);
+    if(this.polarity == Polarities.Negative){
+      this.suffix(Negation);
+      if(this.pronoun != Pronouns.Ben && this.pronoun != Pronouns.Biz)
+        this.suffix(link);
+      this.suffix(Person[p]);
+    }
+    else{
+      this.suffix(link);
+      this.suffix(Person[p]);
+    }
   }
 }

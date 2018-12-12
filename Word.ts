@@ -199,8 +199,9 @@ export class Word {
           const first = this.firstLetter(x)
           const last = this.lastLetter(x)
           
-         if( (["g", "b", "k"].includes(first) && last == "l") ||
+         if( (["b", "k"].includes(first) && last == "l") ||
              (first == "d" && (last == "l" || last == "r"))   || 
+             (first == "g" && ["ö", "e"].includes(x[1])&& (last == "l" || last == "r"))   || 
              (this.isVowel(first) && last == "l") || 
              first !in ["y", "ç"] || ["v"].includes(first)){
             const list: any = {a: "ı", e: "i", "ı": "a", i:"i", o: "u", "ö": "ü", u:"u", "ü":"e"};
@@ -240,7 +241,7 @@ export class Word {
         } 
         else {
           if( ( firstx == "k" && (x.length > 1 && x[x.length - 2] != "l" && x[x.length - 2] != "r"))  ||
-            !(["y", "s","ç", "b", "a", "k"].includes(firstx))
+            !(["y", "s","ç", "b", "a", "k", "g"].includes(firstx))
           )
             return x.slice(0, -1) + "ğ";
           else
@@ -251,9 +252,10 @@ export class Word {
         return x;
       }
       else if (lastx in rule) {
-        if( ((firstx == "g" && lastx != "t")) ||
-            ((firstx == "k" && lastx != "t")  ||
-            ["y", "b", "u", "ü", "a"].includes(firstx)))
+        if( (firstx == "g" && lastx != "t") ||
+            (firstx == "k" && lastx == "t")  ||
+            ["y", "b", "u", "ü", "a"].includes(firstx)
+          )
           return x;
         else
           return x.slice(0, -1) + rule[lastx];
