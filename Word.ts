@@ -253,7 +253,7 @@ export class Word {
       }
       else if (lastx in rule) {
         if( (firstx == "g" && lastx != "t") ||
-            (firstx == "k" && lastx == "t")  ||
+            (firstx == "k" && !x.includes("ğ") && lastx == "t")  ||
             ["y", "b", "u", "ü", "a"].includes(firstx)
           )
           return x;
