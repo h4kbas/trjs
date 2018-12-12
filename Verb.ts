@@ -12,10 +12,10 @@ interface IPerson{
 }
 export const Person: IPerson = {
   [Pronouns.Ben]: "&*m",
-  [Pronouns.Sen]: "s*n",
+  [Pronouns.Sen]: "&s&*n",
   [Pronouns.O]  : "",
   [Pronouns.Biz]: "%y*z",
-  [Pronouns.Siz]: "s*n*z",
+  [Pronouns.Siz]: "&s&*n*z",
   [Pronouns.Onlar]: "l#r",
 };
 interface ITense{
@@ -28,6 +28,14 @@ export const Tense: ITense = {
     },
     [Polarities.Negative]:{
       [Moods.Indicative]: "z",
+    }
+  },
+  [Tenses.Past]:{
+    [Polarities.Affirmative]: {
+      [Moods.Indicative]: "d*",
+    },
+    [Polarities.Negative]:{
+      [Moods.Indicative]: "d*",
     }
   }
 };
@@ -44,15 +52,27 @@ export class Verb extends Word {
     this.tense = t;
     this.polarity = po;
     let link = Tense[t][po][m];
-    if(this.polarity == Polarities.Negative){
-      this.suffix(Negation);
-      if(this.pronoun != Pronouns.Ben && this.pronoun != Pronouns.Biz)
+    if(this.tense == Tenses.Present){
+      if(this.polarity == Polarities.Negative){
+        this.suffix(Negation);
+        if(this.pronoun != Pronouns.Ben && this.pronoun != Pronouns.Biz)
+          this.suffix(link);
+        this.suffix(Person[p]);
+      }
+      else{
         this.suffix(link);
-      this.suffix(Person[p]);
+        this.suffix(Person[p]);
+      }
     }
-    else{
+    else if(this.tense == Tenses.Past){
+      if(this.polarity == Polarities.Negative){
+        this.suffix(Negation);
+      }
       this.suffix(link);
-      this.suffix(Person[p]);
+      if(this.pronoun != Pronouns.Biz)
+        this.suffix(Person[this.pronoun]);
+      else
+        this.suffix("k");
     }
   }
 }

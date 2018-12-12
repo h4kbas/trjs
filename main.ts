@@ -9,29 +9,57 @@ const list = ["açılmak", "açmak", "ağlamak", "akmak", "almak", "anlamak", "a
 
 //const list = ["çak", "çek", "çal", "çök"]
 
+function show(x: string, t: Tenses){
+  let v = new Verb(x);
+  v.setTense(t, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative);
+  console.log(v.toString())
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Ben, Moods.Indicative, Polarities.Negative);
+  console.log(v.toString(), "\n")
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative);
+  console.log(v.toString())
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Sen, Moods.Indicative, Polarities.Negative);
+  console.log(v.toString(), "\n")
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.O, Moods.Indicative, Polarities.Affirmative);
+  console.log(v.toString())
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.O, Moods.Indicative, Polarities.Negative);
+  console.log(v.toString(), "\n")
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative);
+  console.log(v.toString())
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Biz, Moods.Indicative, Polarities.Negative);
+  console.log(v.toString(), "\n")
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative);
+  console.log(v.toString())
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Siz, Moods.Indicative, Polarities.Negative);
+  console.log(v.toString(), "\n")
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative);
+  console.log(v.toString())
+
+  v = new Verb(x);
+  v.setTense(t, Pronouns.Onlar, Moods.Indicative, Polarities.Negative);
+  console.log(v.toString(), "\n")
+}
 
 list.forEach(x => {
-  let v = new Verb(x);
-  v.setTense(Tenses.Present, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative);
-  console.log(v.toString())
-
-  v = new Verb(x);
-  v.setTense(Tenses.Present, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative);
-  console.log(v.toString())
-
-  v = new Verb(x);
-  v.setTense(Tenses.Present, Pronouns.O, Moods.Indicative, Polarities.Affirmative);
-  console.log(v.toString())
-
-  v = new Verb(x);
-  v.setTense(Tenses.Present, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative);
-  console.log(v.toString())
-
-  v = new Verb(x);
-  v.setTense(Tenses.Present, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative);
-  console.log(v.toString())
-
-  v = new Verb(x);
-  v.setTense(Tenses.Present, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative);
-  console.log(v.toString())
+  show(x, Tenses.Present);
+  show(x, Tenses.Past);
 });
