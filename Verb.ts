@@ -30,6 +30,14 @@ export const Tense: ITense = {
       [Moods.Indicative]: "z",
     }
   },
+  [Tenses.Continuous]:{
+    [Polarities.Affirmative]: {
+      [Moods.Indicative]: "/*yor",
+    },
+    [Polarities.Negative]:{
+      [Moods.Indicative]: "/*yor",
+    }
+  },
   [Tenses.Past]:{
     [Polarities.Affirmative]: {
       [Moods.Indicative]: "d*",
@@ -37,7 +45,23 @@ export const Tense: ITense = {
     [Polarities.Negative]:{
       [Moods.Indicative]: "d*",
     }
-  }
+  },
+  [Tenses.RPast]:{
+    [Polarities.Affirmative]: {
+      [Moods.Indicative]: "m*ş",
+    },
+    [Polarities.Negative]:{
+      [Moods.Indicative]: "m*ş",
+    }
+  },
+  [Tenses.Future]:{
+    [Polarities.Affirmative]: {
+      [Moods.Indicative]: "%y#c#k",
+    },
+    [Polarities.Negative]:{
+      [Moods.Indicative]: "%y#c#k",
+    }
+  },
 };
 
 export class Verb extends Word {
@@ -73,6 +97,13 @@ export class Verb extends Word {
         this.suffix(Person[this.pronoun]);
       else
         this.suffix("k");
+    }
+    else{
+      if(this.polarity == Polarities.Negative){
+        this.suffix(Negation);
+      }
+      this.suffix(link);
+      this.suffix(Person[this.pronoun]);
     }
   }
 }

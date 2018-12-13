@@ -2,6 +2,8 @@
 export class Word {
   private vowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
   private fortises = ["p", "ç", "t", "k", "f", "h", "s", "ş"];
+  private backs = ["a", "e"];
+  private flats = ["ı", "i", "u", "ü"];
   protected Root = "";
   protected Str = "";
   protected Suffixes: string[] = [];
@@ -23,7 +25,8 @@ export class Word {
   }
   protected _suffix(x: string): void {
     if (!x) { return; }
-    x = this.harmonify(this.Str, x);
+    const ret = this.harmonify(this.Str, x);
+    this.Str = ret[0]; x = ret[1]
     this.Str = this.consonantLenition(this.Str, x);
     this.Str += this.consonantAssimilation(this.Str, x);
   }
@@ -40,6 +43,12 @@ export class Word {
   }
 
   // Conditionals
+  public isBack(x: string): boolean {
+    return this.backs.includes(x);
+  }
+  public isFlat(x: string): boolean {
+    return this.flats.includes(x);
+  }
   public isVowel(x: string): boolean {
     return this.vowels.includes(x);
   }
@@ -147,7 +156,8 @@ export class Word {
 
   // Harmonify
 
-  public harmonify(x: string, y: string): string {
+  public harmonify(x: string, y: string): string[] {
+    const left = x.split("");
     const out = y.split("");
     let lastw = this.lastVowel(x);
     for (let i = 0; i < out.length; i++) {
@@ -172,7 +182,14 @@ export class Word {
           i++;
           out[i] = "";
         }
-      } 
+      }
+       //Drop if vowel
+       else if (out[i] === "/") {
+        out[i] = "";
+        if (this.isVowel(this.lastLetter(x))) {
+          left[left.length - 1] = "";
+        }
+      }  
       //Drop if not vowel
       else if (out[i] === "%") {
         out[i] = ""; i++;
@@ -217,7 +234,7 @@ export class Word {
 
       }
     }
-    return out.join("");
+    return [left.join(""), out.join("")];
   }
 
   // Assimilation
@@ -244,8 +261,15 @@ export class Word {
             !(["y", "s","ç", "b", "a", "k", "g"].includes(firstx))
           )
             return x.slice(0, -1) + "ğ";
-          else
-            return x; 
+          else{
+            const lastxW = this.lastVowel(x);
+            const firstyW = this.firstVowel(y);
+            if(this.isBack(lastxW) && this.isFlat(firstyW)){
+              return x.slice(0, -1) + "ğ";
+            }
+            else
+              return x; 
+          }
         }
       } 
       else if( this.vowelLength(x) == 1 && (!this.isLenis(firstx) || ["i", "y", "a"].includes(firstx)) ){
