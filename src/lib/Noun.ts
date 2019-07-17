@@ -1,7 +1,7 @@
-import { Pronouns } from "./Pronouns";
-import {Word} from "./Word";
+import { Pronoun } from "./Pronoun";
+import { Word } from "./Word";
 
-export enum Case {
+export const enum Case {
   Accusative = "",
   Dative = "%y#",
   Ablative = "d#n",
@@ -13,12 +13,12 @@ interface IGenitive{
 }
 
 export const Genitive: IGenitive  = {
-  [Pronouns.Ben]: "&*m",
-  [Pronouns.Sen]: "&*n",
-  [Pronouns.O]: "%s*",
-  [Pronouns.Biz]: "&*m*z",
-  [Pronouns.Siz]: "&*n*z",
-  [Pronouns.Onlar]: "l#r*",
+  [Pronoun.Ben]: "&*m",
+  [Pronoun.Sen]: "&*n",
+  [Pronoun.O]: "%s*",
+  [Pronoun.Biz]: "&*m*z",
+  [Pronoun.Siz]: "&*n*z",
+  [Pronoun.Onlar]: "l#r*",
 };
 
 export const Plural = "l#r";
@@ -28,7 +28,7 @@ export class Noun extends Word {
     this.suffix(c);
   }
 
-  public genitive(subject: Pronouns): void {
+  public genitive(subject: Pronoun): void {
     this.suffix(Genitive[subject]);
   }
 

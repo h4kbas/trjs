@@ -30,7 +30,7 @@ First of all, you have Verb class and while constructing, you give the root of t
 * +?: Positive Question
 * -?: Negative Question
 
-### Supported Tenses and English Equivalents
+### Supported Tense and English Equivalents
 
 * Genis: Simple Present Tense
 * Simdiki: Present Cont. Tense

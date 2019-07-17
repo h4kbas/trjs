@@ -1,4 +1,4 @@
-export enum Moods {
+export const enum Type {
   Indicative,
   Imperative,
   Interrogative,

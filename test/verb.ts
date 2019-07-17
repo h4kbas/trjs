@@ -1,9 +1,9 @@
 
-import {Verb} from "../Verb";
-import {Pronouns} from "../Pronouns";
-import {Moods} from "../Moods";
-import {Polarities} from "../Polarities";
-import {Tenses} from "../Tenses";
+import {Verb} from "../src/lib/Verb";
+import {Pronoun} from "../src/lib/Pronoun";
+import {Type} from "../src/lib/Type";
+import {Polarity} from "../src/lib/Polarity";
+import {Tense} from "../src/lib/Tense";
 import assert from "assert"
 import 'mocha';
 
@@ -33,7 +33,7 @@ describe("Module Verb", () => {
         "akmak": "akarım",
         "uyumak": "uyurum",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Ben, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative present tense for second person singular correctly", () => {
@@ -45,7 +45,7 @@ describe("Module Verb", () => {
         "akmak": "akarsın",
         "uyumak": "uyursun",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Sen, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative present tense for third person singular correctly", () => {
@@ -57,7 +57,7 @@ describe("Module Verb", () => {
         "akmak": "akar",
         "uyumak": "uyur",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.O, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.O, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative present tense for first person plural correctly", () => {
@@ -69,7 +69,7 @@ describe("Module Verb", () => {
         "akmak": "akarız",
         "uyumak": "uyuruz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Biz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative present tense for second person plural correctly", () => {
@@ -81,7 +81,7 @@ describe("Module Verb", () => {
         "akmak": "akarsınız",
         "uyumak": "uyursunuz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Siz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative present tense for third person plural correctly", () => {
@@ -93,7 +93,7 @@ describe("Module Verb", () => {
         "akmak": "akarlar",
         "uyumak": "uyurlar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Onlar, Type.Indicative, Polarity.Affirmative))
     });
   });  
 
@@ -107,7 +107,7 @@ describe("Module Verb", () => {
         "akmak": "akmam",
         "uyumak": "uyumam",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Ben, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Ben, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative present tense for second person singular correctly", () => {
@@ -119,7 +119,7 @@ describe("Module Verb", () => {
         "akmak": "akmazsın",
         "uyumak": "uyumazsın",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Sen, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Sen, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative present tense for third person singular correctly", () => {
@@ -131,7 +131,7 @@ describe("Module Verb", () => {
         "akmak": "akmaz",
         "uyumak": "uyumaz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.O, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.O, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative present tense for first person plural correctly", () => {
@@ -143,7 +143,7 @@ describe("Module Verb", () => {
         "akmak": "akmayız",
         "uyumak": "uyumayız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Biz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Biz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative present tense for second person plural correctly", () => {
@@ -155,7 +155,7 @@ describe("Module Verb", () => {
         "akmak": "akmazsınız",
         "uyumak": "uyumazsınız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Siz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Siz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative present tense for third person plural correctly", () => {
@@ -167,7 +167,7 @@ describe("Module Verb", () => {
         "akmak": "akmazlar",
         "uyumak": "uyumazlar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Present, Pronouns.Onlar, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Present, Pronoun.Onlar, Type.Indicative, Polarity.Negative))
     });
   });  
   //Continuous
@@ -181,7 +181,7 @@ describe("Module Verb", () => {
         "akmak": "akıyorum",
         "uyumak": "uyuyorum",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Ben, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative continuous tense for second person singular correctly", () => {
@@ -193,7 +193,7 @@ describe("Module Verb", () => {
         "akmak": "akıyorsun",
         "uyumak": "uyuyorsun",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Sen, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative continuous tense for third person singular correctly", () => {
@@ -205,7 +205,7 @@ describe("Module Verb", () => {
         "akmak": "akıyor",
         "uyumak": "uyuyor",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.O, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.O, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative continuous tense for first person plural correctly", () => {
@@ -217,7 +217,7 @@ describe("Module Verb", () => {
         "akmak": "akıyoruz",
         "uyumak": "uyuyoruz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Biz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative continuous tense for second person plural correctly", () => {
@@ -229,7 +229,7 @@ describe("Module Verb", () => {
         "akmak": "akıyorsunuz",
         "uyumak": "uyuyorsunuz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Siz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative continuous tense for third person plural correctly", () => {
@@ -241,7 +241,7 @@ describe("Module Verb", () => {
         "akmak": "akıyorlar",
         "uyumak": "uyuyorlar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Onlar, Type.Indicative, Polarity.Affirmative))
     });
   });  
 
@@ -255,7 +255,7 @@ describe("Module Verb", () => {
         "akmak": "akmıyorum",
         "uyumak": "uyumuyorum",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Ben, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Ben, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative continuous tense for second person singular correctly", () => {
@@ -267,7 +267,7 @@ describe("Module Verb", () => {
         "akmak": "akmıyorsun",
         "uyumak": "uyumuyorsun",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Sen, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Sen, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative continuous tense for third person singular correctly", () => {
@@ -279,7 +279,7 @@ describe("Module Verb", () => {
         "akmak": "akmıyor",
         "uyumak": "uyumuyor",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.O, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.O, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative continuous tense for first person plural correctly", () => {
@@ -291,7 +291,7 @@ describe("Module Verb", () => {
         "akmak": "akmıyoruz",
         "uyumak": "uyumuyoruz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Biz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Biz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative continuous tense for second person plural correctly", () => {
@@ -303,7 +303,7 @@ describe("Module Verb", () => {
         "akmak": "akmıyorsunuz",
         "uyumak": "uyumuyorsunuz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Siz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Siz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative continuous tense for third person plural correctly", () => {
@@ -315,7 +315,7 @@ describe("Module Verb", () => {
         "akmak": "akmıyorlar",
         "uyumak": "uyumuyorlar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Continuous, Pronouns.Onlar, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Continuous, Pronoun.Onlar, Type.Indicative, Polarity.Negative))
     });
   });  
 
@@ -330,7 +330,7 @@ describe("Module Verb", () => {
         "akmak": "aktım",
         "uyumak": "uyudum",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Ben, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative past tense for second person singular correctly", () => {
@@ -342,7 +342,7 @@ describe("Module Verb", () => {
         "akmak": "aktın",
         "uyumak": "uyudun",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Sen, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative past tense for third person singular correctly", () => {
@@ -354,7 +354,7 @@ describe("Module Verb", () => {
         "akmak": "aktı",
         "uyumak": "uyudu",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.O, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.O, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative past tense for first person plural correctly", () => {
@@ -366,7 +366,7 @@ describe("Module Verb", () => {
         "akmak": "aktık",
         "uyumak": "uyuduk",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Biz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative past tense for second person plural correctly", () => {
@@ -378,7 +378,7 @@ describe("Module Verb", () => {
         "akmak": "aktınız",
         "uyumak": "uyudunuz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Siz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative past tense for third person plural correctly", () => {
@@ -390,7 +390,7 @@ describe("Module Verb", () => {
         "akmak": "aktılar",
         "uyumak": "uyudular",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Onlar, Type.Indicative, Polarity.Affirmative))
     });
   });  
 
@@ -404,7 +404,7 @@ describe("Module Verb", () => {
         "akmak": "akmadım",
         "uyumak": "uyumadım",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Ben, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Ben, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative past tense for second person singular correctly", () => {
@@ -416,7 +416,7 @@ describe("Module Verb", () => {
         "akmak": "akmadın",
         "uyumak": "uyumadın",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Sen, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Sen, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative past tense for third person singular correctly", () => {
@@ -428,7 +428,7 @@ describe("Module Verb", () => {
         "akmak": "akmadı",
         "uyumak": "uyumadı",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.O, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.O, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative past tense for first person plural correctly", () => {
@@ -440,7 +440,7 @@ describe("Module Verb", () => {
         "akmak": "akmadık",
         "uyumak": "uyumadık",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Biz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Biz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative past tense for second person plural correctly", () => {
@@ -452,7 +452,7 @@ describe("Module Verb", () => {
         "akmak": "akmadınız",
         "uyumak": "uyumadınız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Siz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Siz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative past tense for third person plural correctly", () => {
@@ -464,7 +464,7 @@ describe("Module Verb", () => {
         "akmak": "akmadılar",
         "uyumak": "uyumadılar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Past, Pronouns.Onlar, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Past, Pronoun.Onlar, Type.Indicative, Polarity.Negative))
     });
   });  
 
@@ -479,7 +479,7 @@ describe("Module Verb", () => {
         "akmak": "akmışım",
         "uyumak": "uyumuşum",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Ben, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative remote past tense for second person singular correctly", () => {
@@ -491,7 +491,7 @@ describe("Module Verb", () => {
         "akmak": "akmışsın",
         "uyumak": "uyumuşsun",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Sen, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative remote past tense for third person singular correctly", () => {
@@ -503,7 +503,7 @@ describe("Module Verb", () => {
         "akmak": "akmış",
         "uyumak": "uyumuş",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.O, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.O, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative remote past tense for first person plural correctly", () => {
@@ -515,7 +515,7 @@ describe("Module Verb", () => {
         "akmak": "akmışız",
         "uyumak": "uyumuşuz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Biz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative remote past tense for second person plural correctly", () => {
@@ -527,7 +527,7 @@ describe("Module Verb", () => {
         "akmak": "akmışsınız",
         "uyumak": "uyumuşsunuz",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Siz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative remote past tense for third person plural correctly", () => {
@@ -539,7 +539,7 @@ describe("Module Verb", () => {
         "akmak": "akmışlar",
         "uyumak": "uyumuşlar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Onlar, Type.Indicative, Polarity.Affirmative))
     });
   });  
 
@@ -553,7 +553,7 @@ describe("Module Verb", () => {
         "akmak": "akmamışım",
         "uyumak": "uyumamışım",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Ben, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Ben, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative remote past tense for second person singular correctly", () => {
@@ -565,7 +565,7 @@ describe("Module Verb", () => {
         "akmak": "akmamışsın",
         "uyumak": "uyumamışsın",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Sen, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Sen, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative remote past tense for third person singular correctly", () => {
@@ -577,7 +577,7 @@ describe("Module Verb", () => {
         "akmak": "akmamış",
         "uyumak": "uyumamış",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.O, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.O, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative remote past tense for first person plural correctly", () => {
@@ -589,7 +589,7 @@ describe("Module Verb", () => {
         "akmak": "akmamışız",
         "uyumak": "uyumamışız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Biz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Biz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative remote past tense for second person plural correctly", () => {
@@ -601,7 +601,7 @@ describe("Module Verb", () => {
         "akmak": "akmamışsınız",
         "uyumak": "uyumamışsınız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Siz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Siz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative remote past tense for third person plural correctly", () => {
@@ -613,7 +613,7 @@ describe("Module Verb", () => {
         "akmak": "akmamışlar",
         "uyumak": "uyumamışlar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.RPast, Pronouns.Onlar, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.RPast, Pronoun.Onlar, Type.Indicative, Polarity.Negative))
     });
   });
 
@@ -628,7 +628,7 @@ describe("Module Verb", () => {
         "akmak": "akacağım",
         "uyumak": "uyuyacağım",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Ben, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Ben, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative future tense for second person singular correctly", () => {
@@ -640,7 +640,7 @@ describe("Module Verb", () => {
         "akmak": "akacaksın",
         "uyumak": "uyuyacaksın",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Sen, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Sen, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative future tense for third person singular correctly", () => {
@@ -652,7 +652,7 @@ describe("Module Verb", () => {
         "akmak": "akacak",
         "uyumak": "uyuyacak",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.O, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.O, Type.Indicative, Polarity.Affirmative))
     });
 
     it("should return affirmative future tense for first person plural correctly", () => {
@@ -664,7 +664,7 @@ describe("Module Verb", () => {
         "akmak": "akacağız",
         "uyumak": "uyuyacağız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Biz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Biz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative future tense for second person plural correctly", () => {
@@ -676,7 +676,7 @@ describe("Module Verb", () => {
         "akmak": "akacaksınız",
         "uyumak": "uyuyacaksınız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Siz, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Siz, Type.Indicative, Polarity.Affirmative))
     });
 
      it("should return affirmative future tense for third person plural correctly", () => {
@@ -688,7 +688,7 @@ describe("Module Verb", () => {
         "akmak": "akacaklar",
         "uyumak": "uyuyacaklar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Onlar, Moods.Indicative, Polarities.Affirmative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Onlar, Type.Indicative, Polarity.Affirmative))
     });
   });  
 
@@ -702,7 +702,7 @@ describe("Module Verb", () => {
         "akmak": "akmayacağım",
         "uyumak": "uyumayacağım",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Ben, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Ben, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative future tense for second person singular correctly", () => {
@@ -714,7 +714,7 @@ describe("Module Verb", () => {
         "akmak": "akmayacaksın",
         "uyumak": "uyumayacaksın",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Sen, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Sen, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative future tense for third person singular correctly", () => {
@@ -726,7 +726,7 @@ describe("Module Verb", () => {
         "akmak": "akmayacak",
         "uyumak": "uyumayacak",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.O, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.O, Type.Indicative, Polarity.Negative))
     });
 
     it("should return negative future tense for first person plural correctly", () => {
@@ -738,7 +738,7 @@ describe("Module Verb", () => {
         "akmak": "akmayacağız",
         "uyumak": "uyumayacağız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Biz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Biz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative future tense for second person plural correctly", () => {
@@ -750,7 +750,7 @@ describe("Module Verb", () => {
         "akmak": "akmayacaksınız",
         "uyumak": "uyumayacaksınız",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Siz, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Siz, Type.Indicative, Polarity.Negative))
     });
 
      it("should return negative future tense for third person plural correctly", () => {
@@ -762,7 +762,7 @@ describe("Module Verb", () => {
         "akmak": "akmayacaklar",
         "uyumak": "uyumayacaklar",
       };
-      testList(list, (x: Verb) => x.setTense(Tenses.Future, Pronouns.Onlar, Moods.Indicative, Polarities.Negative))
+      testList(list, (x: Verb) => x.setTense(Tense.Future, Pronoun.Onlar, Type.Indicative, Polarity.Negative))
     });
   });    
 })

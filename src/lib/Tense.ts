@@ -1,4 +1,4 @@
-export enum Tenses {
+export enum Tense {
   Present,
   Continuous,
   Past,

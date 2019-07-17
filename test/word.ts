@@ -1,6 +1,6 @@
 import assert from "assert"
 import 'mocha';
-import {Word} from "../Word";
+import {Word} from "../src/lib/Word";
 
 const word = new Word("gelir");
 

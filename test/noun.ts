@@ -1,6 +1,6 @@
 
-import {Genitive, Case, Noun} from "../Noun";
-import {Pronouns} from "../Pronouns";
+import {Genitive, Case, Noun} from "../src/lib/Noun";
+import {Pronoun} from "../src/lib/Pronoun";
 import assert from "assert"
 import 'mocha';
 
@@ -66,64 +66,64 @@ describe("Module Noun", () => {
 
   describe("Genitive Case Test", () => {
     //Singular
-    it("should return genitive first Pronouns singular case correctly", () => {
+    it("should return genitive first Pronoun singular case correctly", () => {
       const list: IList = {
         "araba": "arabam",
         "depo": "depom",
         "ev": "evim",
         "kağıt": "kağıdım"
       };
-      testList(list, (x: Noun) => x.suffix(Genitive[Pronouns.Ben]))
+      testList(list, (x: Noun) => x.suffix(Genitive[Pronoun.Ben]))
     });
     
-    it("should return genitive second Pronouns singular case correctly", () => {
+    it("should return genitive second Pronoun singular case correctly", () => {
       const list: IList = {
         "araba": "araban",
         "depo": "depon",
         "ev": "evin",
         "kağıt": "kağıdın"
       };
-      testList(list, (x: Noun) => x.suffix(Genitive[Pronouns.Sen]))
+      testList(list, (x: Noun) => x.suffix(Genitive[Pronoun.Sen]))
     });
 
-    it("should return genitive third Pronouns singular case correctly", () => {
+    it("should return genitive third Pronoun singular case correctly", () => {
       const list: IList = {
         "araba": "arabası",
         "depo": "deposu",
         "ev": "evi",
         "kağıt": "kağıdı"
       };
-       testList(list, (x: Noun) => x.suffix(Genitive[Pronouns.O]))
+       testList(list, (x: Noun) => x.suffix(Genitive[Pronoun.O]))
     });
 
-    it("should return genitive first Pronouns plural case correctly", () => {
+    it("should return genitive first Pronoun plural case correctly", () => {
       const list: IList = {
         "araba": "arabamız",
         "depo": "depomuz",
         "ev": "evimiz",
         "kağıt": "kağıdımız"
       };
-      testList(list, (x: Noun) => x.suffix(Genitive[Pronouns.Biz]))
+      testList(list, (x: Noun) => x.suffix(Genitive[Pronoun.Biz]))
     });
 
-    it("should return genitive second Pronouns plural case correctly", () => {
+    it("should return genitive second Pronoun plural case correctly", () => {
        const list: IList = {
         "araba": "arabanız",
         "depo": "deponuz",
         "ev": "eviniz",
         "kağıt": "kağıdınız"
       };
-      testList(list, (x: Noun) => x.suffix(Genitive[Pronouns.Siz]))
+      testList(list, (x: Noun) => x.suffix(Genitive[Pronoun.Siz]))
     });
 
-    it("should return genitive third Pronouns plural case correctly", () => {
+    it("should return genitive third Pronoun plural case correctly", () => {
       const list: IList = {
         "araba": "arabaları",
         "depo": "depoları",
         "ev": "evleri",
         "kağıt": "kağıtları"
       };
-      testList(list, (x: Noun) => x.suffix(Genitive[Pronouns.Onlar]))
+      testList(list, (x: Noun) => x.suffix(Genitive[Pronoun.Onlar]))
     });
   });
 
@@ -145,7 +145,7 @@ describe("Module Noun", () => {
         "ev": "evleri",
         "kağıt": "kağıtları"
       };
-      testList(list, (x: Noun) => x.genitive(Pronouns.Onlar))
+      testList(list, (x: Noun) => x.genitive(Pronoun.Onlar))
     });
 
     it("plural method", () => {

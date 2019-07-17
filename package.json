@@ -1,5 +1,5 @@
 {
-  "name": "TrJS",
+  "name": "trjs",
   "version": "2.0.0",
   "description": "A Library That Uses Turkish Grammar and Composes Turkish Sentences",
   "main": "Dist/main.js",
