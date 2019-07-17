@@ -1,5 +1,7 @@
-const assert = require("assert");
-const {Word} = require("../Dist/Word");
+import assert from "assert"
+import 'mocha';
+import {Word} from "../Word";
+
 const word = new Word("gelir");
 
 describe("Module Word", () => {
@@ -77,15 +79,27 @@ describe("Module Word", () => {
     });
   });
   describe("Assimilation & Lenition", () => {
-    it("should find suitable assimilated form of given second argument while looking to first one", () => {
-      assert.equal(word.consonantAssimilation("kitap", "cı"), "çı");
-      assert.equal(word.consonantAssimilation("kağıt", "ları"), "ları");
+    it("should find suitable assimilated form of given second argument while looking to first one if needed", () => {
+      const list = [
+        ["kitap", "cı", "çı"],
+        ["kağıt", "ları", "ları"]
+      ];
+      list.map(x => {
+        assert.equal(word.consonantAssimilation(x[0], x[1]), x[2]);
+      })
+
     });
 
-    it("should change the form of the first argument while looking at the second one", () => {
-      assert.equal(word.consonantLenition("kapak", "ı"), "kapağ");
-      assert.equal(word.consonantLenition("renk", "i"), "reng");
-      assert.equal(word.consonantLenition("ak", "ı"), "ak");
+    it("should change the form of the first argument while looking at the second one if needed", () => {
+      const list = [
+        ["kapak", "ı", "kapağ"],
+        ["renk", "i", "reng"],
+        ["ak", "ı", "ak"]
+      ];
+      list.map(x => {
+        assert.equal(word.consonantLenition(x[0], x[1]), x[2]);
+      })
+
     });
   });
 });

@@ -8,9 +8,6 @@ export class Word {
   protected Str = "";
   protected Suffixes: string[] = [];
   constructor(root: string) {
-    if (root.endsWith("mak") || root.endsWith("mek")) {
-      root = root.slice(0, -3);
-    }
     this.Root = root;
     this.Str = root;
   }
@@ -250,42 +247,49 @@ export class Word {
   public consonantLenition(x: string, y: string): string {
     const lastx = this.lastLetter(x);
     const firstx = this.firstLetter(x);
-    const rule: any = {p : "b", ç : "c", t : "d", k : "g"};
+    const rule: any = {p : "b", ç : "c", t : "d"};
     if (this.isVowel(this.firstLetter(y))) {
       if (lastx === "k") {
+       
         if (x.length > 1 && x[x.length - 2] === "n") {
           return x.slice(0, -1) + "g";
+        }
+        else if(x.length > 1 && this.isConsonant(x[x.length - 2]) && !this.isFortis(x[x.length - 2])){
+          return x;
         } 
         else {
-          if( ( firstx == "k" && (x.length > 1 && x[x.length - 2] != "l" && x[x.length - 2] != "r"))  ||
-            !(["y", "s","ç", "b", "a", "k", "g"].includes(firstx))
-          )
-            return x.slice(0, -1) + "ğ";
-          else{
-            const lastxW = this.lastVowel(x);
-            const firstyW = this.firstVowel(y);
-            if(this.isBack(lastxW) && this.isFlat(firstyW)){
+          const l = this.vowelLength(x);
+          if(l > 2)
               return x.slice(0, -1) + "ğ";
+          else{
+            if(l == 2){
+              if(this.isFortis(firstx) || this.isVowel(firstx)){
+                return x.slice(0, -1) + "ğ";
+              }
+              else if(!this.isFortis(firstx)){
+                if(["g", "y", "d"].includes(firstx)){
+                  const ac = this.allConsonants(x);
+                  if(ac.length > 1 && ac[ac.length - 2] == "r")
+                    return x;
+                  else
+                    return x.slice(0, -1) + "ğ";
+                }
+                else
+                  return x;
+              }
+              else
+                return x;
             }
             else
-              return x; 
+              return x;
           }
         }
       } 
-      else if( this.vowelLength(x) == 1 && (!this.isLenis(firstx) || ["i", "y", "a"].includes(firstx)) ){
-        return x;
-      }
       else if (lastx in rule) {
-        if( (firstx == "g" && lastx != "t") ||
-            (firstx == "k" && !x.includes("ğ") && lastx == "t")  ||
-            ["y", "b", "u", "ü", "a"].includes(firstx)
-          )
-          return x;
-        else
           return x.slice(0, -1) + rule[lastx];
       } 
-      else {return x; }
+      else return x;
     } 
-    else {  return x; }
+    else return x;
   }
 }

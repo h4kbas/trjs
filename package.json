@@ -5,9 +5,9 @@
   "main": "Dist/main.js",
   "scripts": {
     "prestart": "tsc -p .",
-    "pretest": "tsc -p .",
     "start": "node ./Dist/main.js",
-    "test": "mocha"
+    "pretest": "tsc -p .",
+    "test": "mocha ./Dist/test"
   },
   "author": "Hüseyin Akbaş <huskb.code@gmail.com>",
   "license": "MIT",
@@ -15,5 +15,8 @@
     "@types/node": "^10.11.3",
     "mocha": "^5.2.0",
     "typescript": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5"
   }
 }
